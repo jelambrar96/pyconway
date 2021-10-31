@@ -12,19 +12,10 @@ class ConwayBoard:
 
     _kernel = np.array([1, 1, 1], [1, 0, 1], [1, 1, 1])
 
-    def __init__(self, size=None, board=None):
-        assert(size is not None or board is not None, 
-                "Both arguments have not be None at the same time")
-        if size is None and board is not None:
-            self.state = board 
-            self.size = board.shape
-        elif size is not None and board is None:
-            self.size = size
-            self.state  = np.zeros(size, dtype=bool)
-        elif size is not None and board is not None:
-            assert(size == board.shape, "Size and board does not Match")
-            self.state = board 
-            self.size = board.shape
+    def __init__(self, board):
+        if not np.ndim(board) == 2:
+            raise ValueError('Input must both be 2-D arrays')
+        self.state = board 
 
     def getState(self):
         return self.state
