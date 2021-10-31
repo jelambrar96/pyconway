@@ -28,7 +28,6 @@ setup (
     install_requires=requirements,
     tests_require=test_requirements,
     license="MIT license",
-    license="MIT license",
     zip_safe=False,
     keywords=["conway game", "game of life"],
     test_suite="tests",
