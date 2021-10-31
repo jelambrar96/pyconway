@@ -10,12 +10,13 @@ import numpy as np
 
 class ConwayBoard:
 
-    _kernel = np.array([1, 1, 1], [1, 0, 1], [1, 1, 1])
+    _kernel = np.array([[1, 1, 1], [1, 0, 1], [1, 1, 1]], dtype=np.uint8)
 
     def __init__(self, board):
         if not np.ndim(board) == 2:
             raise ValueError('Input must both be 2-D arrays')
         self.state = board 
+        # self.state = board.astype(np.uint8)
 
     def getState(self):
         return self.state
