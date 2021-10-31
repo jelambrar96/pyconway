@@ -18,8 +18,8 @@ class ConwayBoard:
         self.state = board 
         # self.state = board.astype(np.uint8)
         # set default rules
-        self._s_rule = [3]
-        self._b_rule = [2,3]
+        self._s_rule = np.array([2, 3])
+        self._b_rule = np.array([3])
 
     def getState(self):
         return self.state
@@ -28,11 +28,10 @@ class ConwayBoard:
         return self._s_rule, self._b_rule
 
     def __next(self):
-        # conv_result = convolve2d(self.state, ConwayBoard._kernel, boundary='fill', fillvalue=0)
-        conv_result = convolve2d(self.state, ConwayBoard._kernel, mode="same", boundary="wrap")
-        temp = np.where(self.state == 1 & conv_result in self._s_rule, 1, 0)
-        temp[np.where(self.state == 0 & conv_result in self._b_rule)] = 1
-        self.state = temp 
+        conv_result = convolve2d(self.state, ConwayBoard._kernel, mode='same', boundary='fill', fillvalue=0)
+        temp0 = np.logical_and(self.state == True, np.isin(conv_result, self._s_rule))
+        temp1 = np.logical_and(self.state == False, np.isin(conv_result, self._b_rule))
+        self.state = np.logical_or(temp0, temp1) 
 
     def next(self, iterations = 1):
         for _ in range(iterations):
