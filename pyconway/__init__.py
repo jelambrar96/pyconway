@@ -1,6 +1,6 @@
 import pkg_resources
 
-from .board import ConwayBoard
+from .board import ConwayBoard, ConwayBoard3C, ConwayBoard3D
 from .canvan import ConwayCanvan
 from .simulator import Simulator
 
