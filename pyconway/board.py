@@ -73,7 +73,7 @@ class ConwayBoard3D(ConwayBoard):
 
     @overload
     def __next(self):
-        conv_result = convolve(self.state, ConwayBoard._kernel, mode='same', boundary='fill', fillvalue=0)
+        conv_result = convolve(self.state, ConwayBoard3D._kernel_3d, mode='same', boundary='fill', fillvalue=0) - self.state
         temp0 = np.logical_and(self.state == True, np.isin(conv_result, self._s_rule))
         temp1 = np.logical_and(self.state == False, np.isin(conv_result, self._b_rule))
         self.state = np.logical_or(temp0, temp1)
