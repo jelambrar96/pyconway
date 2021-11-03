@@ -91,14 +91,14 @@ Eight =   np.array([[1, 1, 1, 0, 0, 0],
                     [0, 0, 0, 1, 1, 1],
                     [0, 0, 0, 1, 1, 1]], dtype=np.uint8)
 
-Pentadethlon = np.array([[1, 1, 1],
-                        [1, 0, 1],
-                        [1, 1, 1],
-                        [1, 1, 1],
-                        [1, 1, 1],
-                        [1, 1, 1],
-                        [1, 0, 1],
-                        [1, 1, 1]], dtype=np.uint8)
+Pentadecathlon =  np.array([[1, 1, 1],
+                            [1, 0, 1],
+                            [1, 1, 1],
+                            [1, 1, 1],
+                            [1, 1, 1],
+                            [1, 1, 1],
+                            [1, 0, 1],
+                            [1, 1, 1]], dtype=np.uint8)
 
 Pulsar =  np.array([[0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
                     [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
@@ -122,3 +122,25 @@ Toad =    np.array([[0, 0, 0, 0],
                     [1, 1, 1, 0],
                     [0, 1, 1, 1],
                     [0, 0, 0, 0]], dtype=np.uint8)
+
+allShapes = {
+        "Box": Box, 
+        "Eater1": Eater1, 
+        "Eater2": Eater2, 
+        "Kite": Kite, 
+        "Moon": Moon, 
+        "Seed": Seed, 
+        "Glider": Glider, 
+        "LightweightSpaceship": LightweightSpaceship, 
+        "MiddleweightSpaceship": MiddleweightSpaceship, 
+        "Unbounded": Unbounded,
+        "Century": Century,
+        "Thunderbird": Thunderbird,
+        "Beacon": Beacon,
+        "Blinker": Blinker,
+        "Chacha": Chacha,
+        "Eight": Eight,
+        "Pentadecathlon": Pentadecathlon,
+        "Pulsar": Pulsar,
+        "Toad": Toad,
+}
