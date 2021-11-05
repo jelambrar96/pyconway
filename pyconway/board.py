@@ -15,7 +15,7 @@ class ConwayBoard:
     def __init__(self, board):
         if not np.ndim(board) == 2:
             raise ValueError('Input must both be 2-D arrays')
-        self.state = board 
+        self.state = board.copy()
         # self.state = board.astype(np.uint8)
         # set default rules
         self._s_rule = np.array([2, 3])
@@ -47,7 +47,9 @@ class ConwayBoard3C(ConwayBoard):
     def __init__(self, board):
         if not np.ndim(board) == 3:
             raise ValueError('Input must both be 3-D arrays')
-        self.state = board
+        self.state = board.copy()
+        self._s_rule = np.array([2, 3])
+        self._b_rule = np.array([3])
 
     @overload
     def next(self, iterations = 1):
@@ -69,7 +71,9 @@ class ConwayBoard3D(ConwayBoard):
     def __init__(self, board):
         if not np.ndim(board) == 3:
             raise ValueError('Input must both be 3-D arrays')
-        self.state = board
+        self.state = board.copy()
+        self._s_rule = np.array([2, 3])
+        self._b_rule = np.array([3])
 
     @overload
     def __next(self):
