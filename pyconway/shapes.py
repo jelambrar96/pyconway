@@ -144,3 +144,18 @@ allShapes = {
         "Pulsar": Pulsar,
         "Toad": Toad,
 }
+
+def putShape(board, shape, location, mode="override"):
+    hs, ws = shape.shape[:2]
+    hb, wb = board.shape[:2]
+    x,y = location
+    assert (not hb <= (y + hs), "not possible put shape on board")
+    assert (not wb <= (x + ws), "not possible put shape on board")
+    out_board = board.copy() # clone board
+    if mode == "override":
+        out_board[y:y+hs, x:x+ws] = shape
+    elif mode == "or":
+        out_board[y:y+hs, x:x+ws] = np.logical_or(out_board[y:y+hs, x:x+ws], shape)
+    else:
+        raise ValueError('invalid mode: only "override" or "or"')
+    return out_board
