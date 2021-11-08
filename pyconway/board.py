@@ -8,17 +8,17 @@ import numpy as np
 
 
 # another python files
-from conv import conv2dconway, conv3dconway
+from .conv import conv2dconway, conv3dconway
 
 
 class ConwayBoard:
 
-    def __init__(self, board, boundary='fill'):
+    def __init__(self, initial_state, boundary='fill'):
         assert(boundary in ['fill', 'wrap'], 'Expected "fill" or "wrap" on boundary argument')
         self._boundary = boundary
-        if not np.ndim(board) == 2:
+        if not np.ndim(initial_state) == 2:
             raise ValueError('Input must both be 2-D arrays')
-        self.state = board.copy()
+        self.state = initial_state.copy()
         # self.state = board.astype(np.uint8)
         # set default rules
         self._s_rule = np.array([2, 3])
