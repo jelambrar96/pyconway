@@ -60,13 +60,13 @@ class ConwayCanvan:
         if type(color) is int:
             if color > 255 or color < 0:
                 raise ValueError("ERROR: color must be between 0 and 255" )
-            temp_mat = np.full((self._size[0] * self._scale, self._size[0] * self._scale, 3), color, dtype=np.uint8)
+            temp_mat = np.full((self._size[0] * self._scale, self._size[1] * self._scale, 3), color, dtype=np.uint8)
         
         # tuple color input
         if type(color) is tuple or type(color) is list:
             if not len(color) == 3:
                 raise ValueError("ERROR: only iterable of tree elements are allowed." )
-            temp_mat = np.empty((self._size[0] * self._scale, self._size[0] * self._scale, 3), dtype=np.uint8)
+            temp_mat = np.empty((self._size[0] * self._scale, self._size[1] * self._scale, 3), dtype=np.uint8)
             for i, item in enumerate(color):
                 if item > 255 or item < 0:
                     raise ValueError("ERROR: color must be between 0 and 255" )
@@ -76,7 +76,7 @@ class ConwayCanvan:
         if type(color) is np.ndarray:
             # assert(color.dtype == np.uint8, "ERROR: matrix must be a 8uint mat")
             color_shape = color.shape
-            if not (self._size[0] * self._scale, self._size[0] * self._scale,) == color_shape[:2]:
+            if not (self._size[0] * self._scale, self._size[1] * self._scale,) == color_shape[:2]:
                 raise ValueError("ERROR: dimentions must be match!!!!!")
             if len(color_shape) == 2:
                 temp_mat = np.empty(color_shape, dtype=np.uint8)
