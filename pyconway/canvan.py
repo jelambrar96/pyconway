@@ -22,7 +22,7 @@ class ConwayCanvan:
         return self._scale
 
 
-    def setBackgroud(self, color):
+    def setBackground(self, color):
         # check if value is int
         temp_mat = self.__getMatrixFromColor(color)
         self._bgd_color = temp_mat
